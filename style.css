@@ -1,0 +1,30 @@
+body{
+    font-family: sans-serif;
+}
+.card-block{
+    background-image: url(img/card.png);
+    background-repeat: no-repeat;
+
+}
+.card-data{
+    margin-top: 32%;
+
+}
+.btn-container{
+    position: relative;
+}
+.nextBtn{
+    margin-right:50px;
+}
+.card_buttons_container{
+    position: absolute;
+    bottom: 2px;
+}
+
+
+.autoComplete_wrapper>input{
+    background-image: url();
+}
+p{
+    font-family: sans-serif;
+}

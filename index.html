@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+<body>
+    <div class="m-4">
+       <p class="h2">Валідація</p>  
+       <p class="h4">Кожне поле повинно бути заповнене</p>
+       <p class="h4">Місто вводити латинськими символами</p>
+       <p class="h4">Номер телефону вводитьця по масці і може бути тільки цифрами</p>
+       <p class="h4">Номер карти  вводитьця по масці, може бути тільки цифрами, обов'язкове введення всіх 16ти</p>
+       <p class="h4">Дата завершення дії карти  може бути тільки цифрами, обов'язкове введення 4х символів</p>
+       <p class="h4">Cvc карти  може бути тільки цифрами, обов'язкове введення 3х символів</p>
+       <p class="h4">Ім'я може бути будь-яким</p>
+    </div>
+
+
+
+    <button type="button" class="btn btn-primary position-absolute top-50 start-50 translate-middle" id="startModal"data-bs-toggle="modal" data-bs-target="#creditModal">
+        BUY SMTH
+      </button>
+    <div class="modal fade " id="creditModal" tabindex="-1" role="dialog" aria-labelledby="creditModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <button type="button " class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div> -->
+                <div class=modal-body style="height: 400px;">
+                    <div class="container-fluid">
+                        <ul class="nav nav-tabs " id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active disabled" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="home" aria-selected="true">Your order</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link disabled" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Shipping details</button>
+                            </li>
+                            <li class="nav-item " role="presentation">
+                              <button class="nav-link disabled" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Payment details</button>
+                            </li>
+                            <li class="nav-item " role="presentation">
+                              <button class="nav-link disabled" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Confiramtion</button>
+                            </li>
+                          </ul>
+                          
+                          <div class="tab-content " id="myTabContent">
+
+                            <div class="tab-pane fade show active" id="order" role="tabpanel" aria-labelledby="order-tab">
+                              <div class="container d-flex flex-row">
+                                <div class="container w-50 ">
+                                  <img src="https://uchenikspb.ru/images/korg_pa4x-76-1.jpg" alt="" style="width: 100%;">
+                                </div>
+                                <div class="w-50 text-center">
+                                  <p class="h2">korg_pa4x-76-1</p>
+                                  <p><input class="order-amount" type="number" name="t" value="1" min="0" max="50" step="1"></p>
+                                  <p class="h4">Price per item : n</p>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end container-fluid card_buttons_container ">
+                                <div class="text-end"><button class="btn btn-primary nextBtn order-btn" style="border-radius: 0 !important;">Next</button></div>
+                              </div>
+                            </div>
+
+                            <div class="tab-pane fade details-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                              <div class="d-flex justify-content-center ">
+                                <div class="mt-4" >
+                                  <div class="body">
+                                      <input id="autoComplete" class="city-detail" type="text" tabindex="1">
+                                    <div class="selection" hidden="true"></div>
+                                  </div>
+                                  <div class="body mt-4" >
+                                    <div class="autoComplete_wrapper">
+                                      <input class="address-detail" type="text" placeholder="Your address">
+                                    </div>
+                                  </div>
+                                  <div class="body mt-4" >
+                                    <div class="autoComplete_wrapper">
+                                      <input class="phone-detail" type="text" placeholder="(XX)-XXXX-XXXXX">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>  
+                            <div class="d-flex justify-content-between container-fluid card_buttons_container">
+                              <div><button class="btn btn-primary prevBtn" style="border-radius: 0 !important;">Prev</button></div>
+                              <div ><button class="btn btn-primary nextBtn details-btn" style="border-radius: 0 !important;">Next</button></div>
+                          </div>
+                            </div>
+                            <div class="tab-pane fade " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                              <div class="container-fluid d-flex flex-row justify-content-between h-100" style="position: relative;">
+                                <div class="container-fluid w-50 card-block"  style="min-height: 360px;">
+                                  <img class="w-25 mt-2" id = "cardType" src="" alt="" style="float: right;">
+                                  <div class="card-data">
+                                    <p id = "number">Nubmer</p>
+                                    <p  id = "cvc" >CVC</p>
+                                    <div class="container d-flex flex-row justify-content-between" >
+                                      <p id = "name"> NAME</p>
+                                      <p id = "date">DATE</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="container-fluid w-50">
+                                  <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">Number</span>
+                                    </div>
+                                    <input type="text" maxlength="16" class="form-control" id="cardNumberInput" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                  </div>
+                                  <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
+                                    </div>
+                                    <input type="text" maxlength="5" class="form-control" id="cardDateInput" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                  </div>
+                                  <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">Cvc</span>
+                                    </div>
+                                    <input type="text" maxlength="3" class="form-control" id="cardCvcInput" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                  </div>
+                                  <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="cardNameInput" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                  </div>
+                                                              
+
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-between container-fluid card_buttons_container">
+                                <div><button class="btn btn-primary prevBtn" style="border-radius: 0 !important;">Prev</button></div>
+                                <div ><button class="btn btn-primary nextBtn card-btn"  style="border-radius: 0 !important;">Buy</button></div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade confirmation-pane" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                              
+                         
+                                    <div class="card">
+                                        <div class="text-right cross"> <i class="fa fa-times"></i> </div>
+                                        <div class="card-body text-center"> <img src="https://img.icons8.com/bubbles/200/000000/trophy.png">
+                                            <h4>CONGRATULATIONS!</h4>
+                                            <p>You have completed purchase</p> 
+                                        </div>
+                                     </div>
+                            </div>
+                          </div>
+                            </div>
+                            
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <!--autocomplete-->
+  <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
+  <script src="./autocomplete.js"></script>
+
+  <!--bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  <script src="redux/actions.js"></script>
+  <script src="redux/rootReducer.js"></script>
+  <script src="redux/types.js"></script>
+
+  <script src="ua.js"></script>
+  <script  src="createStore.js"></script>
+  <script src="index.js" defer></script>
+  </html>
